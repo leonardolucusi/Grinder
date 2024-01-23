@@ -5,3 +5,4 @@ Tecnologies:
 Unity
 C#
 Aseprite
+Observable Pattern
