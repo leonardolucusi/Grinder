@@ -14,7 +14,6 @@ public class EnemyDetectAndMovement : MonoBehaviour
 
         if (playerCollider != null)
         {
-            Debug.Log("Player detected!");
             FollowPlayer();
         }
         else Patrol();

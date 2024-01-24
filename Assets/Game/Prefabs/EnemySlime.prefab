@@ -175,6 +175,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   invunerability: 0
+  item: {fileID: 0}
+  inventorySystem: {fileID: 0}
 --- !u!1001 &2967798991416428266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,10 +250,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48857a5640f0e44ea96ff56e4265275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionRadius: 5
+  detectionRadius: 2
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 2
+  moveSpeed: 1
   player: {fileID: 0}
   patrolPoints: []

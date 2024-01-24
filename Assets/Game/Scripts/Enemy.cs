@@ -1,16 +1,18 @@
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
-    [SerializeField] private readonly int xp = 3;
+    [SerializeField] private int xp = 3;
     public int currentHealth;
     public bool invunerability = false;
     private SpriteRenderer sr;
     private Color originalColor;
     internal object patrolPoints;
-    public Item item;
     public InventorySystem inventorySystem;
+    public Item weaponToReward;
     void Start()
     {
         currentHealth = maxHealth;
@@ -52,9 +54,9 @@ public class Enemy : MonoBehaviour
             {
                 if (inventorySystem.items[i].named == "empty")
                 {
-                    inventorySystem.items[i] = item;
+                    inventorySystem.items[i] = weaponToReward;
                     inventorySystem.ReloadInventory();
-                    Debug.Log("Item " + item.name + "added to inventory!");
+                    Debug.Log("Item " + weaponToReward + "added to inventory!");
                     return;
                 }
             }

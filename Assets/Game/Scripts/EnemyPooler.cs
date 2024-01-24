@@ -10,6 +10,9 @@ public class EnemyPooler : MonoBehaviour
     private Queue<GameObject> objectPool = new Queue<GameObject>();
     public Vector3[] spawnPositions;
     Transform player;
+    public InventorySystem inventorySystem;
+    public Item weaponToReward;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,10 +26,13 @@ public class EnemyPooler : MonoBehaviour
             GameObject obj = Instantiate(prefab, spawnPositions[i],
             quaternion.identity);
             obj.SetActive(true);
-            EnemyDetectAndMovement enemy = obj.GetComponent<EnemyDetectAndMovement>();
-            enemy.patrolPoints = new Vector3[4];
-            StartCoroutine(RandomizeEnemyPosition(enemy));
-            enemy.player = player;
+            Enemy enemy = obj.GetComponent<Enemy>();
+            enemy.inventorySystem = inventorySystem;
+            enemy.weaponToReward = weaponToReward;
+            EnemyDetectAndMovement enemyMovement = obj.GetComponent<EnemyDetectAndMovement>();
+            enemyMovement.patrolPoints = new Vector3[4];
+            StartCoroutine(RandomizeEnemyPosition(enemyMovement));
+            enemyMovement.player = player;
             objectPool.Enqueue(obj);
         }
     }

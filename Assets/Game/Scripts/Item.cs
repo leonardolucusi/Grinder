@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
         this.damage = damage;
         this.attackSpeed = attackSpeed;
         this.sprite = sprite;
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
     public void SendItem()

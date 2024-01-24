@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class InventorySystem : MonoBehaviour
 {
+
     public GameObject slotPreFab;
     public List<Item> items;
     public int inventorySize;
@@ -13,6 +14,7 @@ public class InventorySystem : MonoBehaviour
     public GameObject sword;
     public GameObject dagger;
     public GameObject empty;
+
     void Start()
     {
         FullFillList();
@@ -31,10 +33,6 @@ public class InventorySystem : MonoBehaviour
         {
             items.Add(empty.GetComponent<Item>());
         }
-        // foreach (var item in items)
-        // {
-        //     Debug.Log(item);
-        // }
     }
 
     public void InitializeInventorytSlots()
@@ -76,4 +74,5 @@ public class InventorySystem : MonoBehaviour
             AddItemToInventorySlot(items[i], slot.gameObject);
         }
     }
+   
 }
